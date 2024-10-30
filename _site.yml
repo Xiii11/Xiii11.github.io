@@ -1,10 +1,10 @@
-name: "Yay internet!"
+name: "Xii111 internet!"
 output_dir: "."
 navbar:
   title: "Home"
   right:
     - text: "About Me"
-      href: About.html
+      href: about.html
     - text: "Moments"
       href: moments.html
     - text: "Plotly"
