@@ -18,26 +18,16 @@ library(dplyr)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Distribution of Restaurant Grades in ZIP Code 10001
+### Distribution of Restaurant Grades in ZIP Code 10032
 
 ```{r}
 data(rest_inspec)
-
-rest_inspec =
-  rest_inspec |> 
-  janitor::clean_names() |> 
-  separate(record_date, into = c('record_year', 'record_month', 'record_day'), remove = TRUE) |> 
-  filter(
-    record_year == "2017",
-    !is.na(score),
-    !is.na(grade)
-  )
 
 rest_inspec_plot2 = 
   rest_inspec |> 
   filter(
     !is.na(grade),
-    zipcode == "10001"
+    zipcode == "10032"
   ) |> 
   mutate(
     grade = str_replace(grade, "^N$", "Not Yet Graded"),
@@ -52,7 +42,7 @@ rest_inspec_plot2 =
   plot_ly(labels = ~grade, values = ~n,type = 'pie'
 ) |> 
   layout(
-    title = 'Distribution of Restaurant Grades in ZIP Code 10001',
+    title = 'Distribution of Restaurant Grades in ZIP Code 10032',
     xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
     yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
   )
