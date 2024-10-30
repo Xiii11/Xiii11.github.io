@@ -1,0 +1,114 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# NYC Restaurant Inspections
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+library(dplyr)
+```
+
+```{r}
+data(rest_inspec)
+
+rest_inspec =
+  rest_inspec |> 
+  janitor::clean_names() |> 
+  separate(record_date, into = c('record_year', 'record_month', 'record_day'), remove = TRUE) |> 
+  filter(
+    record_year == "2017",
+    !is.na(score),
+    !is.na(grade)
+  )
+
+```
+
+# Scores by Borough
+```{r}
+
+rest_inspec_plot1 = 
+  rest_inspec |> 
+  filter(
+    !is.na(score),
+    !is.na(boro),
+    boro != "Missing"
+  ) |> 
+   plot_ly(x = ~boro, y = ~score, type = 'box') |> 
+  layout(
+    title = "Inspection Scores by Borough",
+    xaxis = list(title = "Borough"),
+    yaxis = list(title = "Inspection Score"),
+    subtitle = "Comparing inspection scores across NYC boroughs"
+  ) 
+
+rest_inspec_plot1
+
+```
+
+# Grades in ZIP 10001
+```{r}
+
+rest_inspec_plot2 = 
+  rest_inspec |> 
+  filter(
+    !is.na(grade),
+    zipcode == "10001"
+  ) |> 
+  mutate(
+    grade = str_replace(grade, "^N$", "Not Yet Graded"),
+    grade = str_replace(grade, "^A$", "Grade A"),
+    grade = str_replace(grade, "^B$", "Grade B"),
+    grade = str_replace(grade, "^C$", "Grade C"), 
+    grade = str_replace(grade, "^Z$", "Grade Pending"),
+    grade = str_replace(grade, "^P$", "Pending Re-opening")
+  ) |> 
+   group_by(grade) |> 
+  summarise(n = n()) |> 
+  plot_ly(labels = ~grade, values = ~n,type = 'pie'
+) |> 
+  layout(
+    title = 'Distribution of Restaurant Grades in ZIP Code 10001',
+    xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
+  )
+
+rest_inspec_plot2
+
+```
+
+# Inspections Over Time
+```{r}
+
+rest_inspec_plot3 =
+  rest_inspec |> 
+  mutate(
+    year_month = cut(inspection_date, breaks = "month")
+  ) |> 
+  count(year_month) |> 
+  plot_ly(
+    x = ~year_month,
+    y = ~n,
+    type = "scatter",
+    mode = "lines+markers"
+  ) |> 
+  layout(
+    title = "Number of Restaurant Inspections Over Time",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Number of Inspections")
+  )
+
+rest_inspec_plot3
+
+```
+
+
+
+
