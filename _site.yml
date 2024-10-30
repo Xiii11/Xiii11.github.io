@@ -7,6 +7,10 @@ navbar:
       href: about.html
     - text: "Moments"
       href: moments.html
+    - text: "Plotly"
+      href: plotly.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<xp2213@cumc.columbia.edu>
     - icon: fa-github fa-lg

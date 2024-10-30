@@ -11,7 +11,7 @@
 
 
 
-<title>More About Me</title>
+<title>Dashboard</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -224,69 +221,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -294,16 +228,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,95 +286,99 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">More About Me</h1>
+<h1 class="title toc-ignore">Dashboard</h1>
 
 </div>
 
 
-<p><br></p>
-<p>I come from <a href="https://en.wikipedia.org/wiki/Yibin">Yibin</a>,
-Sichuan, a region with a profound cultural and historical legacy. Upon
-completion of my secondary education in China, I initiated an
-international educational journey in 2015, commencing with high school
-in Amesbury, Massachusetts. This experience fostered my interest in
-examining global issues, particularly those pertaining to health.</p>
-<p><br></p>
-<div id="educational-path" class="section level1">
-<h1>Educational Path</h1>
-<p>After high school, I attended the <a
-href="https://www.washington.edu/">University of Washington</a>, where I
-earned a Bachelor’s degree in Food Systems, Nutrition, and Health with a
-minor in Global Health under the <a
-href="https://sph.washington.edu/">School of Public Health</a>. My
-undergraduate studies provided me with a strong foundation in
-understanding the interconnections of health, nutrition, and social
-systems.</p>
-<p>I am currently pursuing a <a
-href="https://www.publichealth.columbia.edu/academics/departments/epidemiology">Master
-of Public Health (MPH) in Epidemiology</a> at Columbia University’s
-Mailman School of Public Health, where I am developing advanced research
-skills and focusing on public health analysis.</p>
-<p><br></p>
+<div id="column" class="section level2" data-width="650">
+<h2>Column</h2>
+<div id="distribution-of-restaurant-grades-in-zip-code-10001"
+class="section level3">
+<h3>Distribution of Restaurant Grades in ZIP Code 10001</h3>
+<pre class="r"><code>data(rest_inspec)
+
+rest_inspec =
+  rest_inspec |&gt; 
+  janitor::clean_names() |&gt; 
+  separate(record_date, into = c(&#39;record_year&#39;, &#39;record_month&#39;, &#39;record_day&#39;), remove = TRUE) |&gt; 
+  filter(
+    record_year == &quot;2017&quot;,
+    !is.na(score),
+    !is.na(grade)
+  )</code></pre>
+<pre><code>## Warning: Expected 3 pieces. Additional pieces discarded in 397584 rows [1, 2, 3, 4, 5,
+## 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].</code></pre>
+<pre class="r"><code>rest_inspec_plot2 = 
+  rest_inspec |&gt; 
+  filter(
+    !is.na(grade),
+    zipcode == &quot;10001&quot;
+  ) |&gt; 
+  mutate(
+    grade = str_replace(grade, &quot;^N$&quot;, &quot;Not Yet Graded&quot;),
+    grade = str_replace(grade, &quot;^A$&quot;, &quot;Grade A&quot;),
+    grade = str_replace(grade, &quot;^B$&quot;, &quot;Grade B&quot;),
+    grade = str_replace(grade, &quot;^C$&quot;, &quot;Grade C&quot;), 
+    grade = str_replace(grade, &quot;^Z$&quot;, &quot;Grade Pending&quot;),
+    grade = str_replace(grade, &quot;^P$&quot;, &quot;Pending Re-opening&quot;)
+  ) |&gt; 
+   group_by(grade) |&gt; 
+  summarise(n = n()) |&gt; 
+  plot_ly(labels = ~grade, values = ~n,type = &#39;pie&#39;
+) |&gt; 
+  layout(
+    title = &#39;Distribution of Restaurant Grades in ZIP Code 10001&#39;,
+    xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
+  )</code></pre>
 </div>
-<div id="research-and-professional-experience" class="section level1">
-<h1>Research and Professional Experience</h1>
-<p>Throughout my academic career, I’ve been actively involved in various
-research projects and internships that allowed me to apply my knowledge
-to real-world public health challenges. Some of my key projects
-include:</p>
-<p><strong>Romani Women Health Study</strong>: Under the guidance of the
-<a href="https://www.viberesearchlab.org/">VIBE Research Lab</a>, I
-analyze the impact of discrimination on access to maternal healthcare,
-focusing on disparities related to ethnicity, income, and location. <br>
-→ Assess the influence of discrimination on the access and quality of
-maternal healthcare services. <br> → Analyze the frequency and timing of
-initial antenatal visits in relation to discriminatory experiences. <br>
-→ Investigate disparities in maternal healthcare quality based on
-ethnicity, income level, insurance status, and geographic location.</p>
-<p><strong>Cancer Epidemiology with the <a
-href="https://www.hsph.harvard.edu/pooling-project/about-the-study/">DCPP</a></strong>:
-Investigating the influence of body measurements and physical activity
-on colorectal cancer risk, using data from 27 cohort studies. <br> →
-Investigated the association between body measurements, physical
-activity, and colorectal cancer (CRC) risk, with a focus on the role of
-family history. <br> → Prepared, cleaned, and analyzed cohort data to
-assess the relationship between anthropometric factors and CRC, using
-stratified analyses by familial risk.</p>
-<p><strong>Global Health Challenges</strong>: Conducting studies on
-smallpox eradication, HPV awareness, and pandemic interventions,
-particularly focusing on maternal health during COVID-19. <br> →
-Evaluated how different social and medical interventions are used during
-the pandemic. <br> → Analyzed the existing strategies and how they are
-not effective enough to overcome certain special situations that
-pregnant women may experience during pandemic.</p>
-<p><br></p>
 </div>
-<div id="skills-and-technical-expertise" class="section level1">
-<h1>Skills and Technical Expertise</h1>
-<p>In my research, I leverage tools and skills like:</p>
-<p><strong>Statistical Analysis</strong>: Proficient in SAS and R for
-data modeling, cohort analysis, and epidemiological research.</p>
-<p><strong>Languages</strong>: Fluent in Mandarin and English, with
-basic knowledge of French.</p>
-<p><strong>Project Collaboration</strong>: Experienced in team-based
-research, leading group projects, and independent research
-initiatives.</p>
-<p><br></p>
+<div id="column-1" class="section level2" data-width="350">
+<h2>Column</h2>
+<div id="comparing-inspection-scores-across-nyc-boroughs"
+class="section level3">
+<h3>Comparing inspection scores across NYC boroughs</h3>
+<pre class="r"><code>rest_inspec_plot1 = 
+  rest_inspec |&gt; 
+  filter(
+    !is.na(score),
+    !is.na(boro),
+    boro != &quot;Missing&quot;
+  ) |&gt; 
+   plot_ly(x = ~boro, y = ~score, type = &#39;box&#39;) |&gt; 
+  layout(
+    title = &quot;Inspection Scores by Borough&quot;,
+    xaxis = list(title = &quot;Borough&quot;),
+    yaxis = list(title = &quot;Inspection Score&quot;),
+    subtitle = &quot;Comparing inspection scores across NYC boroughs&quot;
+  ) </code></pre>
 </div>
-<div id="life-beyond-epidemiology" class="section level1">
-<h1>Life Beyond Epidemiology</h1>
-<p>When I’m not working, I enjoy exploring different facets of life that
-bring me joy and balance:</p>
-<p><strong>Photography</strong>: Capturing portraits and landscapes.</p>
-<p><strong>Cooking</strong>: Experimenting with recipes from various
-cultures, blending flavors that reflect my own journey.</p>
-<p>😉 Take a look at my <a href="moments.html">Captured Moments</a>.</p>
+<div id="number-of-restaurant-inspections-over-time"
+class="section level3">
+<h3>Number of Restaurant Inspections Over Time</h3>
+<pre class="r"><code>rest_inspec_plot3 =
+  rest_inspec |&gt; 
+  mutate(
+    year_month = cut(inspection_date, breaks = &quot;month&quot;)
+  ) |&gt; 
+  count(year_month) |&gt; 
+  plot_ly(
+    x = ~year_month,
+    y = ~n,
+    type = &quot;scatter&quot;,
+    mode = &quot;lines+markers&quot;
+  ) |&gt; 
+  layout(
+    title = &quot;Number of Restaurant Inspections Over Time&quot;,
+    xaxis = list(title = &quot;Date&quot;),
+    yaxis = list(title = &quot;Number of Inspections&quot;)
+  )</code></pre>
+</div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -483,35 +411,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
