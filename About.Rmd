@@ -31,7 +31,7 @@ Under the guidance of the [VIBE Research Lab](https://www.viberesearchlab.org/),
 <br>
 → Analyze the frequency and timing of initial antenatal visits in relation to discriminatory experiences.
 <br>
-→ Investigate disparities in maternal healthcare quality based on ethnicity, income level, insurance status, and geographic location. 
+→ Investigate disparities in maternal healthcare quality. 
 
 **Cancer Epidemiology with the [DCPP](https://www.hsph.harvard.edu/pooling-project/about-the-study/)**: 
 Investigating the influence of body measurements and physical activity on colorectal cancer risk, using data from 27 cohort studies.
