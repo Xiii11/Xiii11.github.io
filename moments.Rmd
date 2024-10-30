@@ -9,9 +9,18 @@ output:
 
 # Through My Lens
 (These photos were taken with a Canon R10.📸)
-<img src="image/IMG_4863.jpg" style="width:75%">
+<img src="image/IMG_4863.jpg" style="width:75%"> 
+
+<br>
+
 <img src="image/IMG_4862.jpg" style="width:75%">
+
+<br>
+
 <img src="image/IMG_4864.jpg" style="width:75%">
+
+<br>
+
 <img src="image/IMG_4865.jpg" style="width:75%">
 
 <br>
@@ -19,6 +28,15 @@ output:
 # From My Kitchen
 (These photos were taken with my phone.📱)
 <img src="image/IMG_1496.jpg" style="width:75%">
+
+<br>
+
 <img src="image/IMG_4868.jpg" style="width:75%">
+
+<br>
+
 <img src="image/IMG_4869.jpg" style="width:75%">
+
+<br>
+
 <img src="image/IMG_4870.jpg" style="width:75%">
