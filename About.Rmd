@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "More about Me"
 output: 
   html_document:
     toc: true
@@ -7,5 +7,64 @@ output:
     theme: cosmo
 ---
 
-# Self Introduction
+<br>
+
+I come from [Yibin](https://en.wikipedia.org/wiki/Yibin), Sichuan, a region with a profound cultural and historical legacy. Upon completion of my secondary education in China, I initiated an international educational journey in 2015, commencing with high school in Amesbury, Massachusetts. This experience fostered my interest in examining global issues, particularly those pertaining to health.
+
+<br>
+
+# Educational Path
+
+After high school, I attended the [University of Washington](https://www.washington.edu/), where I earned a Bachelor’s degree in Food Systems, Nutrition, and Health with a minor in Global Health under the [School of Public Health](https://sph.washington.edu/). My undergraduate studies provided me with a strong foundation in understanding the interconnections of health, nutrition, and social systems.
+
+I am currently pursuing a [Master of Public Health (MPH) in Epidemiology](https://www.publichealth.columbia.edu/academics/departments/epidemiology) at Columbia University's Mailman School of Public Health, where I am developing advanced research skills and focusing on public health analysis. 
+
+<br>
+
+# Research and Professional Experience
+Throughout my academic career, I’ve been actively involved in various research projects and internships that allowed me to apply my knowledge to real-world public health challenges. Some of my key projects include:
+
+**Romani Women Health Study**:
+Under the guidance of the [VIBE Research Lab](https://www.viberesearchlab.org/), I analyze the impact of discrimination on access to maternal healthcare, focusing on disparities related to ethnicity, income, and location.
+<br>
+→ Assess the influence of discrimination on the access and quality of maternal healthcare services.
+<br>
+→ Analyze the frequency and timing of initial antenatal visits in relation to discriminatory experiences.
+<br>
+→ Investigate disparities in maternal healthcare quality based on ethnicity, income level, insurance status, and geographic location.  
+**Cancer Epidemiology with the [DCPP](https://www.hsph.harvard.edu/pooling-project/about-the-study/)**: 
+Investigating the influence of body measurements and physical activity on colorectal cancer risk, using data from 27 cohort studies.
+<br>
+→ Investigated the association between body measurements, physical activity, and colorectal cancer (CRC) risk, with a focus on the role of family history.
+<br>
+→ Prepared, cleaned, and analyzed cohort data to assess the relationship between anthropometric factors and CRC, using stratified analyses by familial risk.
+
+**Global Health Challenges**: 
+Conducting studies on smallpox eradication, HPV awareness, and pandemic interventions, particularly focusing on maternal health during COVID-19.
+<br>
+→ Evaluated how different social and medical interventions are used during the pandemic. 
+<br>
+→ Analyzed the existing strategies and how they are not effective enough to overcome certain special situations that pregnant women may experience during pandemic.
+
+<br>
+
+# Skills and Technical Expertise
+In my research, I leverage tools and skills like:
+
+**Statistical Analysis**: Proficient in SAS and R for data modeling, cohort analysis, and epidemiological research.
+
+**Languages**: Fluent in Mandarin and English, with basic knowledge of French.
+
+**Project Collaboration**: Experienced in team-based research, leading group projects, and independent research initiatives.
+
+<br>
+
+# Life Beyond Epidemiology
+When I’m not working, I enjoy exploring different facets of life that bring me joy and balance:
+
+**Photography**: Capturing portraits and landscapes.
+
+**Cooking**: Experimenting with recipes from various cultures, blending flavors that reflect my own journey.
+
+Please check out the [Captured Moments](moments.html)
 
