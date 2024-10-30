@@ -1,5 +1,5 @@
 ---
-title: "Welcome to XI's World"
+title: "Captured Moments"
 output: 
   html_document:
     toc: true
@@ -7,11 +7,18 @@ output:
     theme: cosmo
 ---
 
-# My Journey, My Story
+# Through My Lens
+(These photos were taken with a Canon R10.📸)
+<img src="image/IMG_4863.jpg" style="width:75%">
+<img src="image/IMG_4862.jpg" style="width:75%">
+<img src="image/IMG_4864.jpg" style="width:75%">
+<img src="image/IMG_4865.jpg" style="width:75%">
 
-![](image/AS0006748_05.gif) This is my Best friend, Chicken Sally🐥! Feel free to learn more [about her](https://line.fandom.com/wiki/Sally)!
+<br>
 
-## Hello! My name is Xi Peng！
-A Master of Public Health candidate specializing in Epidemiology at Columbia University, with a background in nutrition, global health, and advanced epidemiological research. My work focuses on understanding and addressing global health challenges, including maternal health, cancer risk factors, and pandemic interventions.
-
-I invite you to explore my journey in public health and research through my work, experiences, and future aspirations. Feel free to connect with me for collaborations, insights, or to discuss public health innovations!
+# From My Kitchen
+(These photos were taken with my phone.📱)
+<img src="image/IMG_1496.jpg" style="width:75%">
+<img src="image/IMG_4868.jpg" style="width:75%">
+<img src="image/IMG_4869.jpg" style="width:75%">
+<img src="image/IMG_4870.jpg" style="width:75%">
