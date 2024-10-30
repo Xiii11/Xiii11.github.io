@@ -4,6 +4,7 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    theme: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -56,6 +57,8 @@ rest_inspec_plot2 =
     yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
   )
 
+rest_inspec_plot2
+
 ```
 
 Column {data-width=350}
@@ -64,6 +67,7 @@ Column {data-width=350}
 ### Comparing inspection scores across NYC boroughs
 
 ```{r}
+
 rest_inspec_plot1 = 
   rest_inspec |> 
   filter(
@@ -78,11 +82,15 @@ rest_inspec_plot1 =
     yaxis = list(title = "Inspection Score"),
     subtitle = "Comparing inspection scores across NYC boroughs"
   ) 
+
+rest_inspec_plot1
+
 ```
 
 ### Number of Restaurant Inspections Over Time
 
 ```{r}
+
 rest_inspec_plot3 =
   rest_inspec |> 
   mutate(
@@ -100,5 +108,8 @@ rest_inspec_plot3 =
     xaxis = list(title = "Date"),
     yaxis = list(title = "Number of Inspections")
   )
+
+rest_inspec_plot3
+
 ```
 
