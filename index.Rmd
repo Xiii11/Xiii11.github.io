@@ -1,0 +1,12 @@
+---
+title: "Welcome to XI's World"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+---
+
+# My Journey, My Story
+
+![](image/AS0006748_05.gif)
