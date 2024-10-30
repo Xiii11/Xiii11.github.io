@@ -1,5 +1,5 @@
 ---
-title: "More about Me"
+title: "More About Me"
 output: 
   html_document:
     toc: true
@@ -31,7 +31,8 @@ Under the guidance of the [VIBE Research Lab](https://www.viberesearchlab.org/),
 <br>
 → Analyze the frequency and timing of initial antenatal visits in relation to discriminatory experiences.
 <br>
-→ Investigate disparities in maternal healthcare quality based on ethnicity, income level, insurance status, and geographic location.  
+→ Investigate disparities in maternal healthcare quality based on ethnicity, income level, insurance status, and geographic location. 
+
 **Cancer Epidemiology with the [DCPP](https://www.hsph.harvard.edu/pooling-project/about-the-study/)**: 
 Investigating the influence of body measurements and physical activity on colorectal cancer risk, using data from 27 cohort studies.
 <br>
@@ -66,5 +67,5 @@ When I’m not working, I enjoy exploring different facets of life that bring me
 
 **Cooking**: Experimenting with recipes from various cultures, blending flavors that reflect my own journey.
 
-Please check out the [Captured Moments](moments.html)
+😉 Take a look at my [Captured Moments](moments.html).
 

@@ -9,7 +9,7 @@ output:
 
 # My Journey, My Story
 
-![](image/AS0006748_05.gif) This is my Best friend, Chicken Sally🐥! Feel free to learn more [about her](https://line.fandom.com/wiki/Sally)!
+![](image/AS0006748_05.gif) This is my best friend, Chicken Sally🐥! Feel free to learn more [about her](https://line.fandom.com/wiki/Sally)!
 
 ## Hello! My name is Xi Peng！
 A Master of Public Health candidate specializing in Epidemiology at Columbia University, with a background in nutrition, global health, and advanced epidemiological research. My work focuses on understanding and addressing global health challenges, including maternal health, cancer risk factors, and pandemic interventions.
